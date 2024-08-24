@@ -1,0 +1,17 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 116vh;
+}
+
+router-outlet {
+  flex: 1;
+}
+
+.bottom-bar {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  width: 100%;
+  margin: 0;
+}
