@@ -15,13 +15,29 @@
     </nav>
 
     <div class="user-actions">
-      <button class="account-btn" [routerLink]="['/login']">
+      <button
+        class="account-btn"
+        [routerLink]="['/login']"
+        *ngIf="user && user.username === ''"
+      >
         <i class="fas fa-user"></i>
         <p>Login</p>
       </button>
-      <button class="register-btn" [routerLink]="['/register']">
+      <button
+        class="register-btn"
+        [routerLink]="['/register']"
+        *ngIf="user && user.username === ''"
+      >
         <i class="fas fa-user-plus"></i>
         <p>Register</p>
+      </button>
+      <button
+        class="register-btn"
+        (click)="logout()"
+        *ngIf="user && user.username !== ''"
+      >
+        <i class="fas fa-sign-out-alt"></i>
+        <p>Logout</p>
       </button>
     </div>
   </div>

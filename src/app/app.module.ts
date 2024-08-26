@@ -9,6 +9,7 @@ import { AuthorModule } from '../components/Author/author.module';
 import { TouristModule } from '../components/Tourist/tourist.module';
 import { TopBarComponent } from '../components/shared/top-bar/top-bar.component';
 import { BottomBarComponent } from '../components/shared/bottom-bar/bottom-bar.component';
+import { AuthModule } from '../auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent, TopBarComponent, BottomBarComponent],
@@ -19,6 +20,7 @@ import { BottomBarComponent } from '../components/shared/bottom-bar/bottom-bar.c
     AdminModule,
     AuthorModule,
     TouristModule,
+    AuthModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

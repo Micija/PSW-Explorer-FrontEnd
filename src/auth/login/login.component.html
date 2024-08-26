@@ -1,7 +1,7 @@
 <div class="container">
-  <form class="form">
+  <form class="form" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
     <div class="flex-column">
-      <label>Email </label>
+      <label for="username">Email</label>
     </div>
     <div class="inputForm">
       <svg
@@ -16,11 +16,25 @@
           ></path>
         </g>
       </svg>
-      <input placeholder="Enter your Email" class="input" type="text" />
+
+      <input
+        placeholder="Enter your Email"
+        class="input"
+        type="text"
+        id="username"
+        name="username"
+        [(ngModel)]="username"
+        required
+        #usernameCtrl="ngModel"
+      />
+      <!-- Display error only if the input is invalid and touched -->
+      <div *ngIf="usernameCtrl.invalid && usernameCtrl.touched" class="error">
+        Please enter a valid email address.
+      </div>
     </div>
 
     <div class="flex-column">
-      <label>Password </label>
+      <label for="password">Password</label>
     </div>
     <div class="inputForm">
       <svg
@@ -35,18 +49,34 @@
         <path
           d="m304 224c-8.832031 0-16-7.167969-16-16v-80c0-52.929688-43.070312-96-96-96s-96 43.070312-96 96v80c0 8.832031-7.167969 16-16 16s-16-7.167969-16-16v-80c0-70.59375 57.40625-128 128-128s128 57.40625 128 128v80c0 8.832031-7.167969 16-16 16zm0 0"
         ></path>
+              
       </svg>
-      <input placeholder="Enter your Password" class="input" type="password" />
+      <input
+        placeholder="Enter your Password"
+        class="input"
+        type="password"
+        id="password"
+        name="password"
+        [(ngModel)]="password"
+        required
+        #passwordCtrl="ngModel"
+      />
+      <!-- Display error only if the input is invalid and touched -->
+      <div *ngIf="passwordCtrl.invalid && passwordCtrl.touched" class="error">
+        Please enter your password.
+      </div>
     </div>
 
     <div class="flex-row">
       <div>
         <input type="radio" />
-        <label>Remember me </label>
+        <label>Remember me</label>
       </div>
       <span class="span">Forgot password?</span>
     </div>
-    <button class="button-submit">Sign In</button>
+    <button class="button-submit" type="submit" [disabled]="loginForm.invalid">
+      Sign In
+    </button>
     <p class="p">
       Don't have an account?
       <span class="span" (click)="toRegister()">Sign Up</span>

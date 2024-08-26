@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../../auth/auth.service';
+import { User } from '../../../auth/model/user.model';
 
 @Component({
   selector: 'app-top-bar',
@@ -6,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./top-bar.component.scss'],
 })
 export class TopBarComponent implements OnInit {
-  constructor() {}
+  user: User | undefined;
 
-  ngOnInit(): void {}
+  constructor(private authService: AuthService) {}
+
+  ngOnInit(): void {
+    this.authService.user$.subscribe((user) => {
+      this.user = user;
+    });
+  }
+
+  logout() {
+    this.authService.logout();
+  }
 
   getRouteBasedOnRole() {
     return '/';
