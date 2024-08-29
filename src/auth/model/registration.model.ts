@@ -4,6 +4,6 @@ export interface Registration {
   name: string;
   surname: string;
   email: string;
-  interest: Number;
+  interests: string[];
   role: Number;
 }

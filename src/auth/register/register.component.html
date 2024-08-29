@@ -1,66 +1,81 @@
 <div class="container">
-  <form class="form">
+  <form class="form" [formGroup]="registrationForm" (ngSubmit)="register()">
     <div class="flex-column">
       <label>Username</label>
     </div>
     <div class="inputForm">
-      <input placeholder="Enter your Username" class="input" type="text" />
+      <input
+        formControlName="username"
+        placeholder="Enter your Username"
+        class="input"
+        type="text"
+      />
     </div>
 
     <div class="flex-column">
       <label>Email</label>
     </div>
     <div class="inputForm">
-      <input placeholder="Enter your Email" class="input" type="email" />
+      <input
+        formControlName="email"
+        placeholder="Enter your Email"
+        class="input"
+        type="email"
+      />
     </div>
 
     <div class="flex-column">
       <label>Password</label>
     </div>
     <div class="inputForm">
-      <input placeholder="Enter your Password" class="input" type="password" />
+      <input
+        formControlName="password"
+        placeholder="Enter your Password"
+        class="input"
+        type="password"
+      />
     </div>
 
     <div class="flex-column">
       <label>Name</label>
     </div>
     <div class="inputForm">
-      <input placeholder="Enter your Name" class="input" type="text" />
+      <input
+        formControlName="name"
+        placeholder="Enter your Name"
+        class="input"
+        type="text"
+      />
     </div>
 
     <div class="flex-column">
       <label>Surname</label>
     </div>
     <div class="inputForm">
-      <input placeholder="Enter your Surname" class="input" type="text" />
-    </div>
-
-    <div class="flex-column">
-      <label>Role</label>
-    </div>
-    <div class="inputForm">
-      <input placeholder="Enter your Role" class="input" type="text" />
+      <input
+        formControlName="surname"
+        placeholder="Enter your Surname"
+        class="input"
+        type="text"
+      />
     </div>
 
     <div class="flex-column">
       <label>Interests</label>
     </div>
-    <div class="inputForm checkbox-group horizontal-checkboxes">
-      <label
-        ><input type="checkbox" name="interest" value="Nature" /> Nature</label
+    <div class="inputForm">
+      <ng-select
+        class="input"
+        style="margin-bottom: 100px"
+        [items]="availableInterests"
+        bindLabel="interest"
+        [multiple]="true"
+        formControlName="interests"
       >
-      <label><input type="checkbox" name="interest" value="Art" /> Art</label>
-      <label
-        ><input type="checkbox" name="interest" value="Sport" /> Sport</label
-      >
-      <label
-        ><input type="checkbox" name="interest" value="Shopping" />
-        Shopping</label
-      >
-      <label><input type="checkbox" name="interest" value="Food" /> Food</label>
+      </ng-select>
     </div>
 
-    <button class="button-submit">Register</button>
+    <button type="submit" class="button-submit">Register</button>
     <p class="p">
       Already have an account?
       <span class="span" (click)="toLogin()">Sign In</span>
