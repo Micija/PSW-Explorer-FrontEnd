@@ -1,0 +1,14 @@
+<div class="container">
+  <app-map-component class="map-frame"></app-map-component>
+  <div class="keypoints-container">
+    <div *ngFor="let kp of keypoints" class="flex flex-col items-center p-4">
+      <h1 class="text-lg font-semibold">{{ kp.name }}</h1>
+      <p class="text-sm">{{ kp.latitude }} - {{ kp.longitude }}</p>
+      <img
+        class="w-1/2 mt-2 mb-0 rounded-md bg-violet-200 flex justify-center"
+        [src]="'https://localhost:44333/resources' + kp.image"
+        alt="Checkpoint image"
+      />
+    </div>
+  </div>
+</div>

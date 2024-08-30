@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+
 import { AuthService } from '../../../auth/auth.service';
 import { TourService } from '../../../services/tour.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-tour',

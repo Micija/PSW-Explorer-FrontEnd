@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MapComponent } from './map-component/map-component.component';
 
 @NgModule({
-  declarations: [],
+  declarations: [MapComponent],
   imports: [CommonModule],
-  exports: [],
+  exports: [MapComponent],
 })
 export class MutualModule {}
