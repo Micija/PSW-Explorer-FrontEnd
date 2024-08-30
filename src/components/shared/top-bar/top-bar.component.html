@@ -6,12 +6,19 @@
       </button>
     </div>
     <nav class="navigation">
-      <ul>
-        <li><a [routerLink]="getRouteBasedOnRole()">Home</a></li>
-        <li><a href="#">Shop</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
+      <div class="nav-links">
+        <a [routerLink]="getRouteBasedOnRole()">Home</a>
+        <a *ngIf="user && user.username === ''">Shop</a>
+        <a *ngIf="user && user.username === ''">About</a>
+        <a *ngIf="user && user.username === ''">Contact</a>
+        <a
+          [routerLink]="['/create-tour']"
+          *ngIf="user && user.role == 'author'"
+        >
+          Create tour
+        </a>
+      </div>
+      <!-- AUTHOR -->
     </nav>
 
     <div class="user-actions">

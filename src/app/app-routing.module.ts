@@ -9,6 +9,7 @@ import { TouristHomeComponent } from '../components/Tourist/tourist-home/tourist
 import { TouristGuard } from '../auth/tourist.guard';
 import { AuthorGuard } from '../auth/author.guard';
 import { AdminGuard } from '../auth/admin.guard';
+import { CreateTourComponent } from '../components/Author/create-tour/create-tour.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,6 +21,11 @@ const routes: Routes = [
   {
     path: 'author',
     component: AuthorHomeComponent,
+    canActivate: [AuthorGuard],
+  },
+  {
+    path: 'create-tour',
+    component: CreateTourComponent,
     canActivate: [AuthorGuard],
   },
 

@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="form-container">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" [(ngModel)]="tourName" name="name" />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <input type="text" [(ngModel)]="tourDescription" name="description" />
+      </div>
+
+      <div class="form-group">
+        <label for="difficulty">Difficulty:</label>
+        <select [(ngModel)]="tourDifficulty" name="difficulty" required>
+          <option value="" disabled selected>Select difficulty</option>
+          <option value="EASY">Easy</option>
+          <option value="MEDIUM">Medium</option>
+          <option value="HARD">Hard</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="interest">Interest:</label>
+        <select [(ngModel)]="tourInterest" name="interest" required>
+          <option value="" disabled selected>Select your interest</option>
+          <option [value]="0">Nature</option>
+          <option [value]="1">Art</option>
+          <option [value]="2">Sport</option>
+          <option [value]="3">Shopping</option>
+          <option [value]="4">Food</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="number" id="price" [(ngModel)]="tourPrice" name="price" />
+      </div>
+
+      <div class="form-actions">
+        <button type="submit">Create Tour</button>
+      </div>
+    </form>
+  </div>
+</div>
