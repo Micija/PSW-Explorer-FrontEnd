@@ -1,9 +1,95 @@
+.container-tour-overview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.tour-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+  color: #333;
+}
+
 .map-frame {
   pointer-events: none;
   width: 75%;
-  margin-bottom: 25%;
+  margin-bottom: 30px;
 }
 
 .keypoints-container {
-  background-color: aqua;
+  display: flex;
+  flex-direction: column; /* Use column direction to maintain cards stacking */
+  flex-wrap: nowrap; /* Prevent wrapping to ensure scrollability */
+  justify-content: flex-start;
+  align-items: center;
+  gap: 20px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 1200px;
+  height: 190px; /* Fixed height */
+  overflow-y: auto; /* Enable vertical scrolling */
+  box-sizing: border-box; /* Include padding in height */
+  overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+.keypoint-card {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  text-align: center;
+  width: calc(100% - 40px);
+  max-width: 22rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.keypoint-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.keypoint-coordinates {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.keypoint-image {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-top: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.option-buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.option-button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.option-button:hover {
+  background-color: #0056b3;
 }

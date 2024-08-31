@@ -39,7 +39,7 @@
       <p>{{ tour.description }}</p>
     </div>
     <div class="tour-card__footer">
-      <button class="tour-card__cta" (click)="toTourOverview(tour.id)">
+      <button class="tour-card__cta" [routerLink]="'/tour-overview/' + tour.id">
         View details
       </button>
     </div>

@@ -31,7 +31,6 @@ export class AuthorHomeComponent implements OnInit {
     this.tourService.getForAuthor().subscribe((tours) => {
       this.tours = tours;
       this.filteredTours = this.tours;
-      console.log(this.tours);
     });
   }
 

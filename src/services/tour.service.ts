@@ -61,4 +61,7 @@ export class TourService {
   archive(tourId: number): Observable<any> {
     return this.http.patch<any>(`${this.apiUrl}/set-archive/${tourId}`, {});
   }
+  getTourById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
+  }
 }

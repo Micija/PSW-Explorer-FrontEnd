@@ -1,14 +1,33 @@
-<div class="container">
-  <app-map-component class="map-frame"></app-map-component>
+<div class="container-tour-overview">
+  <h1 class="tour-title">{{ tourName }}</h1>
+
+  <app-map-component
+    [keypoints]="keypoints"
+    class="map-frame"
+  ></app-map-component>
+
+  <button
+    class="option-button"
+    style="margin-bottom: 20px"
+    (click)="createKeypoint()"
+  >
+    Add new keypoint
+  </button>
+
   <div class="keypoints-container">
-    <div *ngFor="let kp of keypoints" class="flex flex-col items-center p-4">
-      <h1 class="text-lg font-semibold">{{ kp.name }}</h1>
-      <p class="text-sm">{{ kp.latitude }} - {{ kp.longitude }}</p>
+    <div *ngFor="let kp of keypoints" class="keypoint-card">
+      <h2 class="keypoint-title">{{ kp.name }}</h2>
+      <p class="keypoint-coordinates">{{ kp.latitude }} - {{ kp.longitude }}</p>
       <img
-        class="w-1/2 mt-2 mb-0 rounded-md bg-violet-200 flex justify-center"
+        class="keypoint-image"
         [src]="'https://localhost:44333/resources' + kp.image"
         alt="Checkpoint image"
       />
     </div>
+    <h2 *ngIf="keypoints.length == 0">NEMA</h2>
+  </div>
+  <div class="option-buttons-container">
+    <button (click)="publishTour()" class="option-button">Publish tour</button>
+    <button (click)="archiveTour()" class="option-button">Archive tour</button>
   </div>
 </div>

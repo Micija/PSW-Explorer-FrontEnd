@@ -1,0 +1,63 @@
+<div class="container-tour-overview">
+  <h1 class="tour-title">{{ tourName }}</h1>
+
+  <app-map-component-2
+    (mapClick)="onMapClick($event)"
+    class="map-frame"
+  ></app-map-component-2>
+
+  <div class="keypoint-form">
+    <label for="keypointName">Keypoint Name</label>
+    <input
+      [(ngModel)]="keypointName"
+      id="keypointName"
+      class="input-field"
+      placeholder="Name of the keypoint"
+    />
+
+    <label for="keypointDescription">Keypoint Description</label>
+    <input
+      [(ngModel)]="keypointDescription"
+      id="keypointDescription"
+      class="input-field"
+      placeholder="Optional description of the keypoint"
+    />
+
+    <label for="longitude">Longitude</label>
+    <input
+      disabled
+      [(ngModel)]="longitude"
+      id="longitude"
+      class="input-field"
+      placeholder="Click on map to get longitude"
+    />
+
+    <label for="latitude">Latitude</label>
+    <input
+      disabled
+      name="latitude"
+      [(ngModel)]="latitude"
+      id="latitude"
+      class="input-field"
+      placeholder="Click on map to get latitude"
+    />
+
+    <label for="file">Keypoint Image</label>
+    <!-- <input
+      (change)="onFileSelected($event)"
+      type="file"
+      class="file-input"
+      name="file"
+      required
+    /> -->
+    <input
+      placeholder="Image URL"
+      name="image"
+      [(ngModel)]="keypointImage"
+      id="image"
+      class="input-field"
+    />
+
+    <button class="option-button" (click)="onSubmit()">Add new keypoint</button>
+  </div>
+</div>
