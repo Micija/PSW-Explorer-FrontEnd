@@ -39,9 +39,13 @@ export class TouristHomeComponent implements OnInit {
       buyerId: this.userId,
       bought: false,
     };
-
-    this.cartService.createCart(data).subscribe(() => {
-      alert('Tour added to cart successfully');
-    });
+    this.cartService.createCart(data).subscribe(
+      () => {
+        alert('Tour added to cart successfully');
+      },
+      (error) => {
+        alert('Tour already added to cart');
+      }
+    );
   }
 }

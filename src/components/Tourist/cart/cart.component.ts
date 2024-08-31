@@ -44,10 +44,10 @@ export class CartComponent implements OnInit {
   }
 
   // Method to remove a tour from the cart
-  removeTour(cartId: string) {
-    // this.cartService.deleteCart(cartId).subscribe(() => {
-    //   this.loadCart(); // Reload the cart after removing a tour
-    // });
+  removeTour(id: any) {
+    this.cartService.deleteCart(id).subscribe(() => {
+      this.loadCart(); // Reload the cart after removing a tour
+    });
   }
 
   // Method to handle the buy action
