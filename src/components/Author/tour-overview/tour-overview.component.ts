@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TourService } from '../../../services/tour.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { KeypointService } from '../../../services/keypoint.service';
+import { AuthService } from '../../../auth/auth.service';
 
 @Component({
   selector: 'app-tour-overview',
@@ -12,8 +13,10 @@ export class TourOverviewComponent implements OnInit {
   tourId: number = 0;
   keypoints: any[] = [];
   tourName: string = '';
+  user: any;
 
   constructor(
+    private authService: AuthService,
     private tourService: TourService,
     private keyPointService: KeypointService,
     private route: ActivatedRoute,
@@ -21,6 +24,11 @@ export class TourOverviewComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.authService.user$.subscribe((user) => {
+      this.user = user;
+      console.log(user);
+    });
+
     this.tourId = this.route.snapshot.params['tourId'];
 
     this.tourService.getTourById(this.tourId).subscribe((tour) => {

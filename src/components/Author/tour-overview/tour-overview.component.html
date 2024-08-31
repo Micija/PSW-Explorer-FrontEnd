@@ -10,6 +10,7 @@
     class="option-button"
     style="margin-bottom: 20px"
     (click)="createKeypoint()"
+    *ngIf="user.role == 'author'"
   >
     Add new keypoint
   </button>
@@ -27,7 +28,26 @@
     <h2 *ngIf="keypoints.length == 0">NEMA</h2>
   </div>
   <div class="option-buttons-container">
-    <button (click)="publishTour()" class="option-button">Publish tour</button>
-    <button (click)="archiveTour()" class="option-button">Archive tour</button>
+    <button
+      (click)="publishTour()"
+      class="option-button"
+      *ngIf="user.role == 'author'"
+    >
+      Publish tour
+    </button>
+    <button
+      (click)="archiveTour()"
+      class="option-button"
+      *ngIf="user.role == 'author'"
+    >
+      Archive tour
+    </button>
+    <button
+      (click)="archiveTour()"
+      class="option-button"
+      *ngIf="user.role == 'tourist'"
+    >
+      Add to cart
+    </button>
   </div>
 </div>
