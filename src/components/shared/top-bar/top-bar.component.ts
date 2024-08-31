@@ -23,6 +23,19 @@ export class TopBarComponent implements OnInit {
   }
 
   getRouteBasedOnRole() {
-    return '/';
+    if (this.user) {
+      switch (this.user.role) {
+        case 'tourist':
+          return '/tourist';
+        case 'author':
+          return '/author';
+        case 'admin':
+          return '/admin';
+        default:
+          return '/';
+      }
+    } else {
+      return '/';
+    }
   }
 }

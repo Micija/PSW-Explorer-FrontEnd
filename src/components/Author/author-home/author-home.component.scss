@@ -1,0 +1,141 @@
+.tour-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+  margin-bottom: 9%;
+}
+
+.tour-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+  font-family: Arial, sans-serif;
+
+  &__header {
+    background-color: #f5f5f5;
+    padding: 10px;
+    position: relative;
+
+    h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #333;
+    }
+
+    .tour-card__difficulty {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+
+      &.easy {
+        background-color: #dff0d8;
+        color: #3c763d;
+      }
+
+      &.medium {
+        background-color: #fcf8e3;
+        color: #8a6d3b;
+      }
+
+      &.hard {
+        background-color: #f2dede;
+        color: #a94442;
+      }
+    }
+
+    .tour-card__status {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+
+      &.draft {
+        background-color: #dff0d8;
+        color: #3c763d;
+      }
+
+      &.published {
+        background-color: #fcf8e3;
+        color: #8a6d3b;
+      }
+
+      &.archived {
+        background-color: #f2dede;
+        color: #a94442;
+      }
+    }
+  }
+
+  &__image {
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+  }
+
+  &__description {
+    padding: 15px;
+    font-size: 1rem;
+    color: #666;
+  }
+
+  &__footer {
+    background-color: #f5f5f5;
+    padding: 10px;
+
+    .tour-card__cta {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #0056b3;
+      }
+    }
+  }
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  button {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+
+    &.active {
+      background-color: #007bff;
+      color: white;
+    }
+
+    &:hover {
+      background-color: #0056b3;
+      color: white;
+    }
+  }
+}
