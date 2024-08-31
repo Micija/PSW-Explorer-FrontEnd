@@ -44,7 +44,11 @@ export class TouristHomeComponent implements OnInit {
         alert('Tour added to cart successfully');
       },
       (error) => {
-        alert('Tour already added to cart');
+        if (error.status === 409) {
+          alert('Tour is already in cart');
+        } else {
+          alert('An error occurred while adding tour to cart');
+        }
       }
     );
   }
