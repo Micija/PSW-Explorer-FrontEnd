@@ -64,4 +64,11 @@ export class TourService {
   getTourById(id: number): Observable<any> {
     return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
+
+  getInCart(): Observable<any[]> {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('access-token')}`, // Assuming token is stored in local storage
+    });
+    return this.http.get<any[]>(`${this.apiUrl}/in-cart`, { headers });
+  }
 }

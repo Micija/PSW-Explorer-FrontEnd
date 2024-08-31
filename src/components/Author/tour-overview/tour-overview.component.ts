@@ -3,6 +3,7 @@ import { TourService } from '../../../services/tour.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { KeypointService } from '../../../services/keypoint.service';
 import { AuthService } from '../../../auth/auth.service';
+import { CartService } from '../../../services/cart.service';
 
 @Component({
   selector: 'app-tour-overview',
@@ -19,6 +20,7 @@ export class TourOverviewComponent implements OnInit {
     private authService: AuthService,
     private tourService: TourService,
     private keyPointService: KeypointService,
+    private cartService: CartService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
@@ -58,6 +60,18 @@ export class TourOverviewComponent implements OnInit {
     this.tourService.archive(this.tourId).subscribe(() => {
       alert('Tour archived successfully');
       this.router.navigate(['/author']);
+    });
+  }
+
+  addToCart() {
+    const data = {
+      tourId: this.tourId,
+      buyerId: this.user.id,
+      bought: false,
+    };
+
+    this.cartService.createCart(data).subscribe(() => {
+      alert('Tour added to cart successfully');
     });
   }
 }

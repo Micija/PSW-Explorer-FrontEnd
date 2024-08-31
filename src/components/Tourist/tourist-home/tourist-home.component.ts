@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../auth/auth.service';
 import { User } from '../../../auth/model/user.model';
 import { TourService } from '../../../services/tour.service';
+import { CartService } from '../../../services/cart.service';
 
 @Component({
   selector: 'app-tourist-home',
@@ -16,7 +17,8 @@ export class TouristHomeComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
-    private tourService: TourService
+    private tourService: TourService,
+    private cartService: CartService
   ) {}
 
   ngOnInit(): void {
@@ -32,6 +34,14 @@ export class TouristHomeComponent implements OnInit {
   }
 
   addToCart(tourId: number) {
-    alert('Add to cart');
+    const data = {
+      tourId: tourId,
+      buyerId: this.userId,
+      bought: false,
+    };
+
+    this.cartService.createCart(data).subscribe(() => {
+      alert('Tour added to cart successfully');
+    });
   }
 }

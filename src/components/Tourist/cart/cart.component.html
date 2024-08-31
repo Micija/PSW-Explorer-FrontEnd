@@ -1,0 +1,37 @@
+<div class="page-container">
+  <div class="shopping-cart-container">
+    <h2>Your Shopping Cart</h2>
+
+    <!-- Check if the cart is empty -->
+    <div *ngIf="tours.length === 0" class="empty-cart">
+      <p>Your cart is empty. Start adding tours!</p>
+    </div>
+
+    <!-- Display the list of tours in the cart -->
+    <div *ngFor="let tour of tours" class="tour-item">
+      <div class="tour-details">
+        <h3>{{ tour.name }}</h3>
+        <p>{{ tour.description }}</p>
+        <p class="tour-difficulty">{{ tour.difficulty }}</p>
+        <p class="tour-price">Price: {{ tour.price | currency }}</p>
+      </div>
+      <div class="tour-actions">
+        <button class="remove-button" (click)="removeTour(tour.cartId)">
+          Remove
+        </button>
+        <button
+          class="details-button"
+          [routerLink]="'/tour-overview/' + tour.id"
+        >
+          View Details
+        </button>
+      </div>
+    </div>
+
+    <!-- Total price and Buy button -->
+    <div class="buy-container" *ngIf="tours.length > 0">
+      <p class="total-price">Total Price: {{ totalPrice | currency }}</p>
+      <button class="buy-button" (click)="buyTours()">Buy Now</button>
+    </div>
+  </div>
+</div>

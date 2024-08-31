@@ -13,6 +13,7 @@ import { CreateTourComponent } from '../components/Author/create-tour/create-tou
 import { TourOverviewComponent } from '../components/Author/tour-overview/tour-overview.component';
 import { CreateKeypointComponent } from '../components/Author/create-keypoint/create-keypoint.component';
 import { TouristOrAuthorGuard } from '../auth/tourist&author.guard';
+import { CartComponent } from '../components/Tourist/cart/cart.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -45,6 +46,11 @@ const routes: Routes = [
   {
     path: 'tourist',
     component: TouristHomeComponent,
+    canActivate: [TouristGuard],
+  },
+  {
+    path: 'cart',
+    component: CartComponent,
     canActivate: [TouristGuard],
   },
 ];

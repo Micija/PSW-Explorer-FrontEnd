@@ -39,6 +39,13 @@
         <p>Register</p>
       </button>
       <button
+        class="cart-btn"
+        *ngIf="user?.role == 'tourist'"
+        [routerLink]="['/cart']"
+      >
+        <i class="fas fa-shopping-cart"></i>
+      </button>
+      <button
         class="register-btn"
         (click)="logout()"
         *ngIf="user && user.username !== ''"
