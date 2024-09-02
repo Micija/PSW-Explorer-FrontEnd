@@ -1,0 +1,58 @@
+<div class="container">
+  <div class="ask-recommended-page">
+    <div class="ask-recommended-container">
+      <div class="ask-recommended-card">
+        <div class="ask-recommended-card__header">
+          <h2>Select Difficulty</h2>
+        </div>
+        <div class="ask-recommended-card__content">
+          <select
+            [(ngModel)]="selectedDifficulty"
+            class="ask-recommended-card__select"
+          >
+            <option value="EASY">Easy</option>
+            <option value="MEDIUM">Medium</option>
+            <option value="HARD">Hard</option>
+          </select>
+          <button
+            (click)="askForRecommended()"
+            class="ask-recommended-card__button"
+          >
+            Ask
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="tour-cards-container" *ngIf="tours.length > 0">
+      <div *ngFor="let tour of tours" class="tour-card">
+        <div class="tour-card__header">
+          <h2>{{ tour.name }}</h2>
+          <span class="tour-card__difficulty {{ tour.difficulty | lowercase }}">
+            {{ tour.difficulty }}
+          </span>
+        </div>
+        <div class="tour-card__description">
+          <p>{{ tour.description }}</p>
+        </div>
+        <div class="tour-card__footer">
+          <div class="tour-card__price">
+            <span>{{ tour.price | currency }}</span>
+          </div>
+          <button
+            class="tour-card__cta"
+            [routerLink]="'/tour-overview/' + tour.id"
+          >
+            View details
+          </button>
+          <button class="tour-card__add-to-cart" (click)="addToCart(tour.id)">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+      <div *ngIf="tours.length == 0">
+        <h3>No tours found for this difficulty.</h3>
+      </div>
+    </div>
+  </div>
+</div>

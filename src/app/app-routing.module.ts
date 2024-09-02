@@ -14,6 +14,8 @@ import { TourOverviewComponent } from '../components/Author/tour-overview/tour-o
 import { CreateKeypointComponent } from '../components/Author/create-keypoint/create-keypoint.component';
 import { TouristOrAuthorGuard } from '../auth/tourist&author.guard';
 import { CartComponent } from '../components/Tourist/cart/cart.component';
+import { ReportsOverviewComponent } from '../components/Author/reports-overview/reports-overview.component';
+import { AskForRecommendedComponent } from '../components/Tourist/ask-for-recommended/ask-for-recommended.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -42,6 +44,11 @@ const routes: Routes = [
     component: CreateKeypointComponent,
     canActivate: [AuthorGuard],
   },
+  {
+    path: 'reports-overview',
+    component: ReportsOverviewComponent,
+    canActivate: [AuthorGuard],
+  },
 
   {
     path: 'tourist',
@@ -51,6 +58,11 @@ const routes: Routes = [
   {
     path: 'cart',
     component: CartComponent,
+    canActivate: [TouristGuard],
+  },
+  {
+    path: 'ask-for-recommended',
+    component: AskForRecommendedComponent,
     canActivate: [TouristGuard],
   },
 ];

@@ -17,8 +17,17 @@
         >
           Create tour
         </a>
+        <a
+          [routerLink]="['/reports-overview']"
+          *ngIf="user && user.role == 'author'"
+          >Reports overview</a
+        >
+        <a
+          [routerLink]="['/ask-for-recommended']"
+          *ngIf="user && user.role == 'tourist'"
+          >Ask for recommended</a
+        >
       </div>
-      <!-- AUTHOR -->
     </nav>
 
     <div class="user-actions">

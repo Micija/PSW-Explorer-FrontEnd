@@ -10,6 +10,8 @@ import { TouristModule } from '../components/Tourist/tourist.module';
 import { TopBarComponent } from '../components/shared/top-bar/top-bar.component';
 import { BottomBarComponent } from '../components/shared/bottom-bar/bottom-bar.component';
 import { AuthModule } from '../auth/auth.module';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [AppComponent, TopBarComponent, BottomBarComponent],
@@ -21,6 +23,8 @@ import { AuthModule } from '../auth/auth.module';
     AuthorModule,
     TouristModule,
     AuthModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

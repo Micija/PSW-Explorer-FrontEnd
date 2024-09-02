@@ -71,4 +71,19 @@ export class TourService {
     });
     return this.http.get<any[]>(`${this.apiUrl}/in-cart`, { headers });
   }
+
+  // Get recommendations by difficulty
+  getRecommendations(difficulty: string): Observable<any> {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('access-token')}`, // Assuming token is stored in local storage
+    });
+    return this.http.get<any>(`${this.apiUrl}/recommendations/${difficulty}`, {
+      headers,
+    });
+  }
+
+  // Get awarded tours
+  getAwarded(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/awarded`);
+  }
 }

@@ -1,44 +1,43 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../../auth/auth.service';
-import { User } from '../../../auth/model/user.model';
 import { TourService } from '../../../services/tour.service';
 import { CartService } from '../../../services/cart.service';
-import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../../../auth/auth.service';
 
 @Component({
-  selector: 'app-tourist-home',
-  templateUrl: './tourist-home.component.html',
-  styleUrls: ['./tourist-home.component.scss'],
+  selector: 'app-ask-for-recommended',
+  templateUrl: './ask-for-recommended.component.html',
+  styleUrls: ['./ask-for-recommended.component.scss'],
 })
-export class TouristHomeComponent implements OnInit {
-  user: User | undefined;
-  userId: number = 0;
-
+export class AskForRecommendedComponent implements OnInit {
+  user: any;
   tours: any[] = [];
+  selectedDifficulty: string = '';
 
   constructor(
-    private authService: AuthService,
     private tourService: TourService,
     private cartService: CartService,
-    private toastr: ToastrService
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
     this.authService.user$.subscribe((user) => {
       this.user = user;
     });
-    this.userId = this.authService.user$.getValue().id;
+  }
 
-    this.tourService.getPublish().subscribe((tours) => {
-      //console.log(tours);
-      this.tours = tours;
-    });
+  askForRecommended() {
+    this.tourService
+      .getRecommendations(this.selectedDifficulty)
+      .subscribe((data) => {
+        this.tours = data;
+        console.log(this.tours);
+      });
   }
 
   addToCart(tourId: number) {
     const data = {
       tourId: tourId,
-      buyerId: this.userId,
+      buyerId: this.user.id,
       bought: false,
     };
     this.cartService.createCart(data).subscribe(
