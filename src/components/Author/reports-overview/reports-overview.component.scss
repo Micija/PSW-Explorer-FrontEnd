@@ -1,0 +1,71 @@
+.report-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20%;
+}
+
+.report-wrapper {
+  margin: auto;
+  max-width: 800px; // Restrict max width for better readability
+}
+
+.no-reports-message {
+  text-align: center;
+  padding: 1rem;
+
+  p {
+    font-size: 1.25rem;
+    color: #333; // Minimal color use
+  }
+}
+
+.report-table {
+  width: 100%;
+  border-collapse: collapse; // Minimalist table styling
+  margin-top: 20px; // Adds space between the table and the message
+
+  thead {
+    background-color: #f7f7f7; // Light background for header
+    color: #333;
+
+    th {
+      padding: 0.75rem 1rem;
+      text-align: left; // Align text left for headers
+      font-weight: 600; // Slightly bolder for header distinction
+      border-bottom: 2px solid #ddd; // Simple border for header
+    }
+  }
+
+  tbody {
+    tr {
+      transition: background-color 0.2s; // Smooth hover effect
+
+      &:hover {
+        background-color: #f0f0f0; // Subtle hover effect for rows
+      }
+
+      td {
+        padding: 0.75rem 1rem;
+        text-align: center;
+        border-bottom: 1px solid #eee; // Minimal borders for cells
+      }
+    }
+  }
+
+  .view-report-button {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    color: #007bff; // Minimal color use for button
+    text-decoration: none; // Removes underline
+    font-size: 0.9rem;
+    border: 1px solid #007bff; // Simple border
+    border-radius: 4px; // Slight rounding for buttons
+    transition: background-color 0.2s, color 0.2s; // Smooth transition for hover effects
+
+    &:hover {
+      background-color: #007bff; // Background on hover
+      color: white; // White text on hover
+    }
+  }
+}

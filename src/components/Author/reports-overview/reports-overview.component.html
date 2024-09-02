@@ -1,1 +1,30 @@
-<p>reports-overview works!</p>
+<div class="report-container">
+  <div class="report-wrapper">
+    <div *ngIf="reports.length === 0" class="no-reports-message">
+      <p>You don't have any reports.</p>
+    </div>
+    <table *ngIf="reports.length > 0" class="report-table">
+      <thead>
+        <tr>
+          <th>Report number</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let rep of reports">
+        <tr>
+          <td>{{ rep.id }}</td>
+
+          <td>
+            <a
+              [attr.href]="'https://localhost:44333/resources' + rep.path"
+              target="_blank"
+              class="view-report-button"
+            >
+              View Report
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
