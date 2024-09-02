@@ -43,19 +43,12 @@
     />
 
     <label for="file">Keypoint Image</label>
-    <!-- <input
+    <input
       (change)="onFileSelected($event)"
       type="file"
       class="file-input"
       name="file"
       required
-    /> -->
-    <input
-      placeholder="Image URL"
-      name="image"
-      [(ngModel)]="keypointImage"
-      id="image"
-      class="input-field"
     />
 
     <button class="option-button" (click)="onSubmit()">Add new keypoint</button>

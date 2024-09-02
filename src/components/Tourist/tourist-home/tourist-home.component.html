@@ -1,5 +1,23 @@
-<!-- Main container for tour cards -->
-<div class="container">
+<div class="container-tourist">
+  <!-- Filter Buttons/Slider -->
+  <div class="tour-filter">
+    <button
+      *ngIf="!toggleAwarded"
+      class="filter-button"
+      (click)="toggleAwardedTours()"
+    >
+      Show Awarded Tours
+    </button>
+    <button
+      *ngIf="toggleAwarded"
+      class="filter-button"
+      (click)="toggleAllTours()"
+    >
+      Show all Tours
+    </button>
+  </div>
+
+  <!-- Main container for tour cards -->
   <div class="tour-cards-container">
     <div *ngFor="let tour of tours" class="tour-card">
       <div class="tour-card__header">

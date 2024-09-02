@@ -13,6 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 export class TouristHomeComponent implements OnInit {
   user: User | undefined;
   userId: number = 0;
+  toggleAwarded: boolean = false;
 
   tours: any[] = [];
 
@@ -49,5 +50,19 @@ export class TouristHomeComponent implements OnInit {
         alert('Tour is already in cart');
       }
     );
+  }
+
+  toggleAwardedTours() {
+    this.tourService.getAwarded().subscribe((tours) => {
+      this.tours = tours;
+      this.toggleAwarded = true;
+    });
+  }
+
+  toggleAllTours() {
+    this.tourService.getPublish().subscribe((tours) => {
+      this.tours = tours;
+      this.toggleAwarded = false;
+    });
   }
 }

@@ -43,10 +43,8 @@ export class CreateTourComponent implements OnInit {
 
     this.tourService.createTour(tourData).subscribe((response) => {
       console.log(response);
-      alert('Tour created successfully');
+
       this.router.navigate(['/author']);
     });
-
-    alert('Form submitted');
   }
 }
