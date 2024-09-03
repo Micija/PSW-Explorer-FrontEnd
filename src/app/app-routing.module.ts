@@ -16,6 +16,7 @@ import { TouristOrAuthorGuard } from '../auth/tourist&author.guard';
 import { CartComponent } from '../components/Tourist/cart/cart.component';
 import { ReportsOverviewComponent } from '../components/Author/reports-overview/reports-overview.component';
 import { AskForRecommendedComponent } from '../components/Tourist/ask-for-recommended/ask-for-recommended.component';
+import { BoughtToursOverviewComponent } from '../components/Tourist/bought-tours-overview/bought-tours-overview.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -63,6 +64,11 @@ const routes: Routes = [
   {
     path: 'ask-for-recommended',
     component: AskForRecommendedComponent,
+    canActivate: [TouristGuard],
+  },
+  {
+    path: 'bought-tours-overview',
+    component: BoughtToursOverviewComponent,
     canActivate: [TouristGuard],
   },
 ];

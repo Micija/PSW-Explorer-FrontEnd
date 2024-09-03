@@ -86,4 +86,12 @@ export class TourService {
   getAwarded(): Observable<any[]> {
     return this.http.get<any[]>(`${this.apiUrl}/awarded`);
   }
+
+  // Get bought tours
+  getBought(): Observable<any[]> {
+    const headers = new HttpHeaders({
+      Authorization: `Bearer ${localStorage.getItem('access-token')}`, // Assuming token is stored in local storage
+    });
+    return this.http.get<any[]>(`${this.apiUrl}/bought`, { headers });
+  }
 }

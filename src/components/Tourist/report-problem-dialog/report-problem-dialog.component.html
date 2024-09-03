@@ -1,0 +1,21 @@
+<h1 mat-dialog-title>Report Problem</h1>
+<div mat-dialog-content class="report-problem-dialog__content">
+  <label class="input-label">Problem name</label>
+  <input matInput [(ngModel)]="problemName" class="input-field" />
+
+  <label class="input-label">Problem description</label>
+  <textarea
+    matInput
+    [(ngModel)]="problemDescription"
+    class="textarea-field"
+    style="resize: none"
+  ></textarea>
+</div>
+<div mat-dialog-actions class="report-problem-dialog__actions">
+  <button (click)="onCancel()" class="action-button cancel-button">
+    Cancel
+  </button>
+  <button (click)="onReport()" class="action-button submit-button">
+    Report
+  </button>
+</div>
