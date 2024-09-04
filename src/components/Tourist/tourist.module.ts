@@ -8,6 +8,7 @@ import { AskForRecommendedComponent } from './ask-for-recommended/ask-for-recomm
 import { BoughtToursOverviewComponent } from './bought-tours-overview/bought-tours-overview.component';
 import { ReportProblemDialogComponent } from './report-problem-dialog/report-problem-dialog.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { TouristProblemsOverviewComponent } from './tourist-problems-overview/tourist-problems-overview.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { MatDialogModule } from '@angular/material/dialog';
     AskForRecommendedComponent,
     BoughtToursOverviewComponent,
     ReportProblemDialogComponent,
+    TouristProblemsOverviewComponent,
   ],
   imports: [CommonModule, FormsModule, RouterModule, MatDialogModule],
   exports: [TouristHomeComponent],

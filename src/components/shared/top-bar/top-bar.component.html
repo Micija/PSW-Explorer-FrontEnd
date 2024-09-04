@@ -52,6 +52,11 @@
           *ngIf="user && user.role == 'tourist'"
           >Bought tours</a
         >
+        <a
+          [routerLink]="['/tourist-problems-overview']"
+          *ngIf="user && user.role == 'tourist'"
+          >Problems</a
+        >
       </div>
     </nav>
 

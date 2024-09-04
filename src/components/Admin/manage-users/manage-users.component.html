@@ -1,1 +1,29 @@
-<p>manage-users works!</p>
+<div class="container">
+  <div class="user-management">
+    <section class="section">
+      <h2>Suspicious Users</h2>
+      <div *ngFor="let user of susUsers" class="user-card">
+        <div>{{ user.username }}</div>
+        <button (click)="blockUser(user.id)" class="btn btn-danger">
+          Block User
+        </button>
+      </div>
+      <div *ngIf="susUsers.length === 0">
+        <p>No suspicious users found.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Blocked Users</h2>
+      <div *ngFor="let user of blockedUsers" class="user-card">
+        <div>{{ user.username }}</div>
+        <button (click)="unblockUser(user.id)" class="btn btn-success">
+          Unblock User
+        </button>
+      </div>
+      <div *ngIf="blockedUsers.length === 0">
+        <p>No blocked users found.</p>
+      </div>
+    </section>
+  </div>
+</div>

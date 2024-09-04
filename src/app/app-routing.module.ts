@@ -20,6 +20,7 @@ import { BoughtToursOverviewComponent } from '../components/Tourist/bought-tours
 import { ProblemsOverviewComponent } from '../components/Author/problems-overview/problems-overview.component';
 import { AdminProblemsOverviewComponent } from '../components/Admin/admin-problems-overview/admin-problems-overview.component';
 import { ManageUsersComponent } from '../components/Admin/manage-users/manage-users.component';
+import { TouristProblemsOverviewComponent } from '../components/Tourist/tourist-problems-overview/tourist-problems-overview.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -87,6 +88,11 @@ const routes: Routes = [
   {
     path: 'bought-tours-overview',
     component: BoughtToursOverviewComponent,
+    canActivate: [TouristGuard],
+  },
+  {
+    path: 'tourist-problems-overview',
+    component: TouristProblemsOverviewComponent,
     canActivate: [TouristGuard],
   },
 ];
