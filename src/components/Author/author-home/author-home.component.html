@@ -1,48 +1,56 @@
-<!-- Separate container for filter buttons -->
-<div class="filter-buttons">
-  <button (click)="filterTours('all')" [class.active]="filterStatus === 'all'">
-    All
-  </button>
-  <button
-    (click)="filterTours('DRAFT')"
-    [class.active]="filterStatus === 'DRAFT'"
-  >
-    Draft
-  </button>
-  <button
-    (click)="filterTours('PUBLISHED')"
-    [class.active]="filterStatus === 'PUBLISHED'"
-  >
-    Published
-  </button>
-  <button
-    (click)="filterTours('ARCHIVED')"
-    [class.active]="filterStatus === 'ARCHIVED'"
-  >
-    Archived
-  </button>
-</div>
-
-<!-- Main container for tour cards -->
-<div class="tour-cards-container">
-  <div *ngFor="let tour of filteredTours" class="tour-card">
-    <div class="tour-card__header">
-      <h2>{{ tour.name }}</h2>
-      <span class="tour-card__difficulty {{ tour.difficulty | lowercase }}">
-        {{ tour.difficulty }}
-      </span>
-      <span class="tour-card__status {{ tour.status | lowercase }}">
-        {{ tour.status }}
-      </span>
-    </div>
-    <div class="tour-card__description">
-      <p>{{ tour.description }}</p>
-    </div>
-    <div class="tour-card__footer">
-      <button class="tour-card__cta" [routerLink]="'/tour-overview/' + tour.id">
-        View details
-      </button>
-    </div>
+<div class="author-container">
+  <!-- Separate container for filter buttons -->
+  <div class="filter-buttons">
+    <button
+      (click)="filterTours('all')"
+      [class.active]="filterStatus === 'all'"
+    >
+      All
+    </button>
+    <button
+      (click)="filterTours('DRAFT')"
+      [class.active]="filterStatus === 'DRAFT'"
+    >
+      Draft
+    </button>
+    <button
+      (click)="filterTours('PUBLISHED')"
+      [class.active]="filterStatus === 'PUBLISHED'"
+    >
+      Published
+    </button>
+    <button
+      (click)="filterTours('ARCHIVED')"
+      [class.active]="filterStatus === 'ARCHIVED'"
+    >
+      Archived
+    </button>
   </div>
-  <div *ngIf="filteredTours.length == 0"><h3>NO TOURS</h3></div>
+
+  <!-- Main container for tour cards -->
+  <div class="tour-cards-container">
+    <div *ngFor="let tour of filteredTours" class="tour-card">
+      <div class="tour-card__header">
+        <h2>{{ tour.name }}</h2>
+        <span class="tour-card__difficulty {{ tour.difficulty | lowercase }}">
+          {{ tour.difficulty }}
+        </span>
+        <span class="tour-card__status {{ tour.status | lowercase }}">
+          {{ tour.status }}
+        </span>
+      </div>
+      <div class="tour-card__description">
+        <p>{{ tour.description }}</p>
+      </div>
+      <div class="tour-card__footer">
+        <button
+          class="tour-card__cta"
+          [routerLink]="'/tour-overview/' + tour.id"
+        >
+          View details
+        </button>
+      </div>
+    </div>
+    <div *ngIf="filteredTours.length == 0"><h3>NO TOURS</h3></div>
+  </div>
 </div>

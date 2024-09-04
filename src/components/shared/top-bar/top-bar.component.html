@@ -11,6 +11,20 @@
         <a *ngIf="user && user.username === ''">Shop</a>
         <a *ngIf="user && user.username === ''">About</a>
         <a *ngIf="user && user.username === ''">Contact</a>
+
+        <a
+          [routerLink]="['/admin-problems-overview']"
+          *ngIf="user && user.role == 'admin'"
+        >
+          Problems
+        </a>
+        <a
+          [routerLink]="['/manage-users']"
+          *ngIf="user && user.role == 'admin'"
+        >
+          Manage users
+        </a>
+
         <a
           [routerLink]="['/create-tour']"
           *ngIf="user && user.role == 'author'"
@@ -20,8 +34,14 @@
         <a
           [routerLink]="['/reports-overview']"
           *ngIf="user && user.role == 'author'"
-          >Reports overview</a
-        >
+          >Reports
+        </a>
+        <a
+          [routerLink]="['/problems-overview']"
+          *ngIf="user && user.role == 'author'"
+          >Problems
+        </a>
+
         <a
           [routerLink]="['/ask-for-recommended']"
           *ngIf="user && user.role == 'tourist'"

@@ -3,6 +3,8 @@ import { AuthService } from '../../../auth/auth.service';
 import { User } from '../../../auth/model/user.model';
 import { TourService } from '../../../services/tour.service';
 import { Router } from '@angular/router';
+import { ProblemService } from '../../../services/problem.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-author-home',
@@ -19,7 +21,9 @@ export class AuthorHomeComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private tourService: TourService,
-    private router: Router
+    private problemService: ProblemService,
+    private router: Router,
+    private toastr: ToastrService
   ) {}
 
   ngOnInit(): void {
@@ -31,6 +35,14 @@ export class AuthorHomeComponent implements OnInit {
     this.tourService.getForAuthor().subscribe((tours) => {
       this.tours = tours;
       this.filteredTours = this.tours;
+    });
+
+    this.problemService.getNewProblemsForAuthor().subscribe((problems) => {
+      console.log(problems);
+      if (problems.length > 0) {
+        // Show a notification to the author
+        this.toastr.info('You have new problems to solve');
+      }
     });
   }
 

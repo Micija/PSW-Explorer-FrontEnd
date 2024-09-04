@@ -17,6 +17,9 @@ import { CartComponent } from '../components/Tourist/cart/cart.component';
 import { ReportsOverviewComponent } from '../components/Author/reports-overview/reports-overview.component';
 import { AskForRecommendedComponent } from '../components/Tourist/ask-for-recommended/ask-for-recommended.component';
 import { BoughtToursOverviewComponent } from '../components/Tourist/bought-tours-overview/bought-tours-overview.component';
+import { ProblemsOverviewComponent } from '../components/Author/problems-overview/problems-overview.component';
+import { AdminProblemsOverviewComponent } from '../components/Admin/admin-problems-overview/admin-problems-overview.component';
+import { ManageUsersComponent } from '../components/Admin/manage-users/manage-users.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -24,6 +27,16 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
 
   { path: 'admin', component: AdminHomeComponent, canActivate: [AdminGuard] },
+  {
+    path: 'admin-problems-overview',
+    component: AdminProblemsOverviewComponent,
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'manage-users',
+    component: ManageUsersComponent,
+    canActivate: [AdminGuard],
+  },
 
   {
     path: 'author',
@@ -48,6 +61,11 @@ const routes: Routes = [
   {
     path: 'reports-overview',
     component: ReportsOverviewComponent,
+    canActivate: [AuthorGuard],
+  },
+  {
+    path: 'problems-overview',
+    component: ProblemsOverviewComponent,
     canActivate: [AuthorGuard],
   },
 

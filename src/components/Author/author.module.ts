@@ -8,6 +8,7 @@ import { MutualModule } from '../../mutual/mutual.module';
 import { CreateKeypointComponent } from './create-keypoint/create-keypoint.component';
 import { RouterModule } from '@angular/router';
 import { ReportsOverviewComponent } from './reports-overview/reports-overview.component';
+import { ProblemsOverviewComponent } from './problems-overview/problems-overview.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ReportsOverviewComponent } from './reports-overview/reports-overview.co
     TourOverviewComponent,
     CreateKeypointComponent,
     ReportsOverviewComponent,
+    ProblemsOverviewComponent,
   ],
   imports: [CommonModule, FormsModule, MutualModule, RouterModule],
   exports: [AuthorHomeComponent],
