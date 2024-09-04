@@ -1,7 +1,7 @@
 <div class="container">
   <form class="form" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
     <div class="flex-column">
-      <label for="username">Email</label>
+      <label for="username">Username</label>
     </div>
     <div class="inputForm">
       <svg
@@ -18,7 +18,7 @@
       </svg>
 
       <input
-        placeholder="Enter your Email"
+        placeholder="Enter your username"
         class="input"
         type="text"
         id="username"
@@ -29,7 +29,7 @@
       />
       <!-- Display error only if the input is invalid and touched -->
       <div *ngIf="usernameCtrl.invalid && usernameCtrl.touched" class="error">
-        Please enter a valid email address.
+        Please enter a valid username.
       </div>
     </div>
 

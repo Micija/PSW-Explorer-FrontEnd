@@ -23,7 +23,7 @@ import { ManageUsersComponent } from '../components/Admin/manage-users/manage-us
 import { TouristProblemsOverviewComponent } from '../components/Tourist/tourist-problems-overview/tourist-problems-overview.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
 
